@@ -121,17 +121,23 @@ const App = () => {
 
   return (
     <View style={styles.layout}>
+      <Text style={{textAlign: 'center', fontSize: 10}}>Create by</Text>
+      <Text style={{textAlign: 'center', fontSize: 16, fontWeight: 'bold'}}>
+        Hamzah Nur Rohman
+      </Text>
       <View style={styles.Screen}>
-        <TouchableHighlight>
+        <TouchableHighlight disabled>
           <View style={styles.numberInput}>
-            <Text style={{textAlign: 'right'}}>{number}</Text>
+            <Text style={styles.text}>{number}</Text>
           </View>
         </TouchableHighlight>
-        <View>
-          <Text style={{textAlign: 'right'}}>Result: {result}</Text>
-          {/* <Text style={{textAlign: 'right'}}>Tmp: {tmp} </Text>
-          <Text style={{textAlign: 'right'}}>Op: {op}</Text> */}
-        </View>
+        <TouchableHighlight>
+          <View style={styles.resultText}>
+            <Text style={styles.text}>{result ? result : ' '}</Text>
+            {/* <Text style={{textAlign: 'right'}}>Tmp: {tmp} </Text>
+            <Text style={{textAlign: 'right'}}>Op: {op}</Text> */}
+          </View>
+        </TouchableHighlight>
       </View>
       <View style={styles.numpadCol}>
         <View style={styles.numpadRow}>
@@ -166,42 +172,48 @@ const App = () => {
 const styles = StyleSheet.create({
   layout: {
     flex: 1,
-    justifyContent: 'space-evenly',
     paddingHorizontal: 30,
     marginVertical: 50,
   },
   Screen: {
     height: '40%',
     justifyContent: 'center',
-    marginBottom: 50,
     borderRadius: 15,
   },
   numpadCol: {
     justifyContent: 'space-evenly',
-    backgroundColor: '#D2D2D2',
-    borderRadius: 15,
-    height: '50%',
+    borderTopWidth: 3,
+    borderTopColor: '#D2D2D2',
   },
   numpadRow: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+    marginVertical: 10,
   },
   numpadButton: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#2196F3',
     borderRadius: 40,
-    height: 70,
-    width: 70,
+    height: 80,
+    width: 80,
   },
   numberInput: {
     backgroundColor: '#D2D2D2',
-    padding: 10,
-    marginBottom: 50,
+    padding: 20,
+    borderRadius: 20,
+  },
+  resultText: {
+    marginTop: 30,
+    paddingHorizontal: 20,
   },
   TextButton: {
     color: '#ffffff',
     fontSize: 20,
+  },
+  text: {
+    fontSize: 24,
+    textAlign: 'right',
   },
 });
 
